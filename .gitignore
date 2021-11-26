@@ -1,0 +1,14 @@
+/node_modules
+node_modules/*
+FeiraVirtual/node_modules/
+node_modules/
+FeiraVirtual/.expo/
+FeiraVirtual/dist/
+FeiraVirtual/npm-debug.*
+FeiraVirtual/*.jks
+FeiraVirtual/*.p8
+FeiraVirtual/*.p12
+FeiraVirtual/*.key
+FeiraVirtual/*.mobileprovision
+FeiraVirtual/*.orig.*
+FeiraVirtual/web-build/
