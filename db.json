@@ -1,0 +1,8 @@
+{
+    "categorias": [
+      { "id": 1, "name": "produtos organicos" },
+      { "id": 2, "name": "bebidas" },
+      { "id": 3, "name": "perfumaria" },
+      { "id": 4, "name": "vegetais e frutas" }
+    ]
+}
