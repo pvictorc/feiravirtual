@@ -1,14 +1,21 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+
+import Routes from './src/router';
 
 export default function App() {
+
+  // retornar rotas
   return (
-    <View style={styles.container}>
-      <View style={styles.RectangleShapeView}>
-        <Text>Feira Virtual</Text>
-      </View>      
-    </View>
+    <>
+        <StatusBar style="light" backgroundColor="#000" translucent={false}/> 
+        <NavigationContainer> 
+        <Routes />
+        </NavigationContainer> 
+    </>
   );
 }
 
@@ -20,12 +27,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  RectangleShapeView: {
-    marginTop: 20,
-    width: '80%',
-    height: 120,
-    backgroundColor: '#FFC107',
-    alignItems: 'center',
-    textAlignVertical: 'center'
-  }
 });
