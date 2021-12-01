@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "mock:api": "node api.js"
+    "mock:api": "node util/api.js"
   },
   "dependencies": {
     "expo": "~43.0.2",
