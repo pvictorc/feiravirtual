@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
-import { TextInput } from 'react-native-gesture-handler';
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+
 
 // aqui iremos incluir tudo que será visto na página home
-
 export default function Home() {
     return (
         <>
@@ -15,25 +15,36 @@ export default function Home() {
                 />                     
                 <View style={styles.textContainer}>
                 <TextInput style={styles.TextInput}></TextInput>
-                </View>               
+                </View>  
+ 
             </View>
+            
         </View>
+
+        <ScrollView showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>
         <View style={styles.novidades}>
             <Text style={styles.text}>Novidades!</Text>
         </View>
         <View style={styles.products}>
-            <ScrollView horizontal={true}>
-            <View style={styles.productItem}>
-                <Text>Produtos da feira</Text>
-            </View>
-            <View style={styles.productItem}>
-                <Text>Hortifruti</Text>
-            </View>
-            <View style={styles.productItem}>
-                <Text>Cachaças</Text>
-            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>      
+                <View style={styles.productItem}>
+                    <Text>Produtos da feira</Text>
+                </View>
+                <View style={styles.productItem}>
+                    <Text>Hortifruti</Text>
+                </View>
+                <View style={styles.productItem}>
+                    <Text>Cachaças</Text>
+                </View>
+                <View style={styles.productItem}>
+                    <Text>Etc</Text>
+                </View>
+                <View style={styles.productItem}>
+                    <Text>Recencias</Text>
+                </View>
             </ScrollView>
         </View>
+        </ScrollView>
         </>
     );
 }
@@ -54,7 +65,6 @@ export default function Home() {
     image: {
         width: 50,
         height: 50, 
-        justifyContent: 'space-between',
     },
 
     textContainer:{
@@ -71,23 +81,24 @@ export default function Home() {
     novidades: {
         backgroundColor: '#dc3545',
         width: '100%',
-        height: '30%',
-        marginVertical: '5%'
+        height: '50%',
+        marginVertical: '8%'
     },
     products: {
         marginVertical: '5%',
         flexDirection: 'row',
-        justifyContent: 'space-between',
-
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     productItem: {
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#c3c3c3',
-        paddingHorizontal: 40,
-        paddingVertical: 110,
-        marginHorizontal: 20,
+        paddingHorizontal: '30%',
+        paddingVertical: '50%',
+        marginHorizontal: '5%',
         flex: 1,
-        maxWidth: 150
-        
+        minWidth: '30%',
     }
 
 });
