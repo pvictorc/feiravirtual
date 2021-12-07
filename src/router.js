@@ -8,15 +8,14 @@ import Categorias from "./pages/Categorias";
 import Feira from "./pages/Feira";
 import Perfil from "./pages/Perfil";
 
-
-
 const Tab = createBottomTabNavigator();
-
 
 // usaremos o modelo tab navigator do react navigation
 function Routes() {
     // chamar a tab navigator incluindo nossas rotas/páginas e estilizando a tab
-    return(
+
+    return(      
+        
             <Tab.Navigator screenOptions= {{
                 tabBarStyle: {
                     backgroundColor: '#121212',
@@ -34,16 +33,17 @@ function Routes() {
                         headerShown: false,
                         tabBarIcon: ({size, color}) => (
                             <Entypo name="home" size={size} color={color} />
-                        )
+                        )   
                     }} 
                 />
                 <Tab.Screen 
                     name="Produtos"
                     component={Categorias}
+                    onPress= {() => navigation.navigate('Produtos')}
                     options= {{ 
                         tabBarIcon: ({size, color}) => (
                             <Entypo name="shop" size={size} color={color} />
-                        )
+                        )     
                     }} 
                 />
                 <Tab.Screen 
@@ -65,6 +65,8 @@ function Routes() {
                     }} 
                 />
             </Tab.Navigator>
+
+    
     );
 
 }
