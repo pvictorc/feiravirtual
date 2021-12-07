@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "mock:api": "node util/api.js"
+    "mock:api": "node util/api.js" 
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",

@@ -15,4 +15,4 @@ async function getCategorias() {
     return(categorias); // Função retorna Json
 }
 
-// getCategorias()
+getCategorias()

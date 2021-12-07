@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 export default function products(props) {
     return (
         <TouchableOpacity style={styles.container} onPress={props.onClick}>
-            <Text style={styles.produto}>Produto</Text>
+            <Text style={styles.produto}></Text>
         </TouchableOpacity>
     );
 }
