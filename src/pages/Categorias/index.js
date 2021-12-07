@@ -36,13 +36,17 @@ export default class Categorias extends React.Component {
 
     // navigation = useNavigation();
     
-    data = getCategorias();
+    // data = getCategorias();
     
     getJsonData = () => {
         fetch(url,{method: 'GET'}).
         then( (response)=> response.json() )
         .then((responseJson) => {
             console.log(responseJson);
+            for (let i=0;i<responseJson.length;i++){
+                console.log (responseJson[i].name);
+                arrcategorias.push(responseJson[i].name + ' teste');
+            }
             this.setState({
                 data: responseJson
             })
@@ -61,49 +65,16 @@ export default class Categorias extends React.Component {
 
         return (
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View>
-                    {arrcategorias.map(item => {
-                        return (
+                {arrcategorias.map(item => {
+                    return (
+                        <View>
                             <Text>{item}</Text>
-                        );
-                    })} 
-                </View> 
+                        </View> 
+                    );
+                })} 
             </ScrollView>
         )
     }
 
-    // return (
-        
-    //      {<ScrollView>
-    //         {dataSource.map((item, key) => (
-    //             // key is the index of the array
-    //             // item is the single item of the array
-    //             <View key={key}>
-    //             <Text style={styles.itemStyle}>
-    //                 {item.id}. {item.title}
-    //             </Text>
-    //             <View style={styles.itemSeparatorStyle} />
-    //             </View>
-    //         ))}
-    //         </ScrollView> }
-        
-    //  )
-
-    // estilizando categorias
-    styles = StyleSheet.create({
-        container:{
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 175,
-            height: 175,
-            backgroundColor: 'red',
-            marginHorizontal: '2%',
-            marginVertical: '2%'
-        },
-        produto: {       
-            justifyContent: 'center',
-            alignItems: 'center' 
-        }
-    });
 }
 
