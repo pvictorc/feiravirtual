@@ -10,6 +10,9 @@ npm install --global expo-cli
 ## Instalar dependências do projeto
 npm install  
 
+### Resolver conflitos no package-lock
+npm install --package-lock-only
+
 ## Dependências de Desenvolvimento
 npm install json-server --save-dev
 

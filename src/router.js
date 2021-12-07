@@ -9,7 +9,6 @@ import Feira from "./pages/Feira";
 import Perfil from "./pages/Perfil";
 
 
-
 const Tab = createBottomTabNavigator();
 
 
