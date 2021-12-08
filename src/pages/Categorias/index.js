@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import {  TouchableOpacity } from 'react-native';
 import { useNavigation   } from '@react-navigation/native';
 // import Detail from '../Detail';
 import Produtos from '../../components/Produtos';
@@ -36,7 +36,7 @@ export default class Categorias extends React.Component {
 
     // navigation = useNavigation();
     
-    // data = getCategorias();
+     //data = getCategorias();
     
     getJsonData = () => {
         fetch(url,{method: 'GET'}).
@@ -64,17 +64,53 @@ export default class Categorias extends React.Component {
         // const categoriasArray = JSON.parse(this.state.data);
 
         return (
-            <ScrollView showsVerticalScrollIndicator={false}>
+            <ScrollView showsVerticalScrollIndicator={false}>  
+                <View style={styles.catContainer}>
                 {arrcategorias.map(item => {
-                    return (
+                    return (      
+                          
                         <View>
-                            <Text>{item}</Text>
-                        </View> 
+                        <TouchableOpacity style={styles.container}>
+                        <View style={{width: 150, justifyContent: 'space-between', minWidth: '30%', height: '30%'}}>
+                            <Text style={styles.produto}>{item}</Text>
+                        </View>               
+                        </TouchableOpacity> 
+
+                        <TouchableOpacity style={styles.container}>
+                        <View style={{width: 150, justifyContent: 'space-between', minWidth: '30%', height: '30%'}}>
+                            <Text style={styles.produto}>{item}</Text>
+                        </View>               
+                        </TouchableOpacity> 
+                        </View>
+                        
                     );
                 })} 
+            </View>
             </ScrollView>
         )
     }
 
 }
+    // estilizando categorias
+    const styles = StyleSheet.create({
+        catContainer:{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap'
+        },
+        container:{
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 175,
+            height: 175,
+            backgroundColor: 'red',
+            marginHorizontal: '2%',
+            marginVertical: '2%'
+        },
+        produto: {       
+            justifyContent: 'center',
+            alignItems: 'center'       
+        }
+    });
+
 
