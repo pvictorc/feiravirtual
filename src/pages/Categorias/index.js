@@ -70,22 +70,16 @@ export default class Categorias extends React.Component {
                     return (      
                           
                         <View>
-                        <TouchableOpacity style={styles.container}>
-                        <View style={{width: 150, justifyContent: 'space-between', minWidth: '30%', height: '30%'}}>
-                            <Text style={styles.produto}>{item}</Text>
-                        </View>               
-                        </TouchableOpacity> 
-
-                        <TouchableOpacity style={styles.container}>
-                        <View style={{width: 150, justifyContent: 'space-between', minWidth: '30%', height: '30%'}}>
-                            <Text style={styles.produto}>{item}</Text>
-                        </View>               
-                        </TouchableOpacity> 
+                            <TouchableOpacity style={styles.container}>
+                                <View style={{width: 150, justifyContent: 'space-between', minWidth: '30%', height: '30%'}}>
+                                    <Text style={styles.produto}>{item}</Text>
+                                </View>               
+                            </TouchableOpacity> 
                         </View>
                         
                     );
                 })} 
-            </View>
+                </View>
             </ScrollView>
         )
     }
@@ -103,7 +97,7 @@ export default class Categorias extends React.Component {
             justifyContent: 'center',
             width: 175,
             height: 175,
-            backgroundColor: 'red',
+            backgroundColor: '#a77',
             marginHorizontal: '2%',
             marginVertical: '2%'
         },
