@@ -38,7 +38,7 @@ export default class Categorias extends React.Component {
     }
 
     render(){
-        
+
         return (
             <ScrollView showsVerticalScrollIndicator={false}>  
                 <View style={styles.catContainer}>
@@ -52,7 +52,7 @@ export default class Categorias extends React.Component {
                         </View>                     
                     );
                 })} 
-            </View>
+                </View>
             </ScrollView>
         )
     }
