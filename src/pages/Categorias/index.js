@@ -7,36 +7,13 @@ import Produtos from '../../components/Produtos';
 import { render } from 'react-dom';
 
 const fetch = require('node-fetch');
-const url = "http://localhost:3000/api/categorias";
+const url = "https://mercadosocial.socialtec.net.br/api/categorias/";
 let arrcategorias = [];
-
-async function getCategorias() {
-
-    const fetch = require('node-fetch');
-    const url = "http://localhost:3000/api/categorias";
-
-    const response = await fetch(url);
-    const categorias = await response.json();
-
-    // Imprime as categorias (teste)
-    for (let i=0;i<categorias.length;i++){
-        console.log (categorias[i].name);
-        arrcategorias.push(categorias[i].name);
-    }
-
-    // console.log(categorias);
-    return(categorias); // Função retorna Json
-};
 
 export default class Categorias extends React.Component {
     state = {
-        // data: {'name': 'Produtos...'}
         data: {}
     }
-
-    // navigation = useNavigation();
-    
-     //data = getCategorias();
     
     getJsonData = () => {
         fetch(url,{method: 'GET'}).
@@ -44,8 +21,8 @@ export default class Categorias extends React.Component {
         .then((responseJson) => {
             console.log(responseJson);
             for (let i=0;i<responseJson.length;i++){
-                console.log (responseJson[i].name);
-                arrcategorias.push(responseJson[i].name + ' teste');
+                console.log (responseJson[i]);
+                arrcategorias.push(responseJson[i]);
             }
             this.setState({
                 data: responseJson
@@ -61,28 +38,18 @@ export default class Categorias extends React.Component {
     }
 
     render(){
-        // const categoriasArray = JSON.parse(this.state.data);
-
+        
         return (
             <ScrollView showsVerticalScrollIndicator={false}>  
                 <View style={styles.catContainer}>
                 {arrcategorias.map(item => {
-                    return (      
-                          
-                        <View>
+                    return (                             
+                        <View key={item.id}>
                         <TouchableOpacity style={styles.container}>
-                        <View style={{width: 150, justifyContent: 'space-between', minWidth: '30%', height: '30%'}}>
-                            <Text style={styles.produto}>{item}</Text>
-                        </View>               
+                            <Image style={{minWidth: 150, minHeight: 150}} source={{uri: item.imagem}}/>
+                            <Text  style={styles.produto}>{item.nome}</Text>           
                         </TouchableOpacity> 
-
-                        <TouchableOpacity style={styles.container}>
-                        <View style={{width: 150, justifyContent: 'space-between', minWidth: '30%', height: '30%'}}>
-                            <Text style={styles.produto}>{item}</Text>
-                        </View>               
-                        </TouchableOpacity> 
-                        </View>
-                        
+                        </View>                     
                     );
                 })} 
             </View>
@@ -95,21 +62,23 @@ export default class Categorias extends React.Component {
     const styles = StyleSheet.create({
         catContainer:{
             flexDirection: 'row',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap'
+            justifyContent: 'space-around',
+            flexWrap: 'wrap',
+
         },
         container:{
             alignItems: 'center',
             justifyContent: 'center',
             width: 175,
             height: 175,
-            backgroundColor: 'red',
             marginHorizontal: '2%',
-            marginVertical: '2%'
+            marginVertical: '10%',
+
         },
         produto: {       
             justifyContent: 'center',
-            alignItems: 'center'       
+            alignItems: 'center',
+            fontSize: 20,
         }
     });
 
