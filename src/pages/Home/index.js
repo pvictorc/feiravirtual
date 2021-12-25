@@ -10,7 +10,7 @@ export default function Home() {
         <View style={styles.header}>
             <View style={styles.logo}>
                 <Image
-                    source={require('../../assets/logo-min.png')}   
+                    source={require('../../../assets/logo-min.png')}   
                     style={styles.image}
                 />                     
                 <View style={styles.textContainer}>

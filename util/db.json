@@ -4,5 +4,77 @@
       { "id": 2, "name": "bebidas" },
       { "id": 3, "name": "perfumaria" },
       { "id": 4, "name": "vegetais e frutas" }
+    ],
+    "produtos": [
+      {
+          "id": "001",
+          "categoria": "hortifruti",
+          "nome": "Batata",
+          "descricao": null,
+          "preco": "10.00",
+          "preco_promocional": "9.00",
+          "quantidade_estoque": 80,
+          "tipo_unidade_medida": "kg",
+          "ativo": true,
+          "altura": null,
+          "largura": null,
+          "comprimento": null,
+          "midia_list": []
+      },
+      {
+          "nome": "Pão",
+          "id": "003",
+          "categoria": "paes_e_doces",
+          "descricao": null,
+          "preco": "5.00",
+          "preco_promocional": null,
+          "quantidade_estoque": 10,
+          "tipo_unidade_medida": "und",
+          "ativo": true,
+          "altura": null,
+          "largura": null,
+          "comprimento": null,
+          "midia_list": [
+              "/midia/produtos/pao_caseiro.jpg",
+              "/midia/produtos/pao_caseiro2.jpg"
+          ]
+      },
+      {
+          "nome": "Limão",
+          "id": "007",
+          "categoria": "frutas",
+          "descricao": null,
+          "preco": "2.00",
+          "preco_promocional": "1.75",
+          "quantidade_estoque": 200,
+          "tipo_unidade_medida": "kg",
+          "ativo": true,
+          "altura": null,
+          "largura": null,
+          "comprimento": null,
+          "midia_list": [
+              "/midia/produtos/limao1.jpg",
+              "/midia/produtos/limao2.jpg"
+          ]
+      },
+      {
+          "nome": "Morango",
+          "id": "0082",
+          "categoria": "frutas",
+          "descricao": null,
+          "preco": "12.00",
+          "preco_promocional": "10.75",
+          "quantidade_estoque": 100,
+          "tipo_unidade_medida": "kg",
+          "ativo": true,
+          "altura": null,
+          "largura": null,
+          "comprimento": null,
+          "midia_list": [
+              "/midia/produtos/morango1.jpg",
+              "/midia/produtos/morango2.jpg",
+              "/midia/produtos/morango3.jpg"
+          ]
+      }
     ]
 }

@@ -4,7 +4,7 @@ import { Image, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function cat() {
+export default function categorias() {
 
     const[carregando, setCarregando] = useState(true);
     const[dados, setDados] = useState([]);
