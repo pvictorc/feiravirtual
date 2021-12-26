@@ -1,16 +1,17 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 // importar nossas páginas(rotas)
-import Home from "./pages/Home";
-import Categorias from "./pages/Categorias";
-import Feira from "./pages/Feira";
-import Perfil from "./pages/Perfil";
-
+import Home from "../pages/Home";
+import Categorias from "../pages/Categorias";
+import Feira from "../pages/Feira";
+import Perfil from "../pages/Perfil";
+import Produtos from '../pages/Categorias/Produtos';
 
 const Tab = createBottomTabNavigator();
-
+const Stack = createNativeStackNavigator();
 
 // usaremos o modelo tab navigator do react navigation
 function Routes() {
@@ -25,6 +26,7 @@ function Routes() {
                 },
                 tabBarActiveTintColor: '#FFF',
                 showIcon: true
+
             }}>
                 <Tab.Screen 
                     name="Pagina Inicial"
@@ -37,13 +39,15 @@ function Routes() {
                     }} 
                 />
                 <Tab.Screen 
-                    name="Produtos"
-                    component={Categorias}
+                    name="Categorias"
+                    component={CategoriasStack}
                     options= {{ 
                         tabBarIcon: ({size, color}) => (
                             <Entypo name="shop" size={size} color={color} />
-                        )
-                    }} 
+                        ),
+                        headerShown: false
+                    } 
+                } 
                 />
                 <Tab.Screen 
                     name="Feira"
@@ -63,9 +67,19 @@ function Routes() {
                         )
                     }} 
                 />
-            </Tab.Navigator>
+            </Tab.Navigator>        
     );
+
 
 }
 
 export default Routes;
+
+function CategoriasStack(props) {
+    return (
+    <Stack.Navigator>
+        <Stack.Screen name="Categorias " component={Categorias} />
+        <Stack.Screen name="Produtos" component={Produtos}/>
+    </Stack.Navigator>
+    );
+}
