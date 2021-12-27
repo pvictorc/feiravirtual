@@ -23,6 +23,9 @@ export default function ProdutosLista() {
             // está na api teste (npm run mock:api) pois na da url oficial não há ainda ids e categorias
             fetch(API_URL, {method: 'GET'})
             .then( (response)=> response.json() )
+            .then( (produtos) => produtos.filter((produto) => {
+                return produto.categorias.includes(filtroCat);
+              }))
             .then((responseJson)=> setDados(responseJson))
             .catch(()=>(alert('Erro')))
             .finally(()=>setCarregando(false))
@@ -52,7 +55,8 @@ export default function ProdutosLista() {
                         data={dados}
                         keyExtractor={({id}, index) => id} 
                         renderItem={({item}) =>(
-                        <View >                 
+                        <View >            
+                            {console.log(item)}     
                             <TouchableOpacity style={styles.container}>
                                 <Image style={{minWidth: 150, minHeight: 150}} source={{uri: item.imagem}}/>
                                 <Text  style={styles.produto}>{item.nome}</Text>          
