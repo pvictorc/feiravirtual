@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Produtos from './Produtos';
 
-export default function cat(props) {
+export default function categorias(props) {
 
     const[carregando, setCarregando] = useState(true);
     const[dados, setDados] = useState([]);
@@ -64,17 +64,16 @@ export default function cat(props) {
                         renderItem={({item}) =>(                 
                         <View >  
                             {console.log(item)}               
-                        <TouchableOpacity style={styles.container} onPress={() => props.navigation.navigate('Produtos', {id: item.id})}>
-                             <Image style={{minWidth: 150, minHeight: 150}} source={{uri: item.imagem}}/>
-                             <Text  style={styles.produto}>{item.nome}</Text>          
-                         </TouchableOpacity>     
+                            <TouchableOpacity style={styles.container} onPress={() => props.navigation.navigate('Produtos', {id: item.id})}>
+                                <Image style={{minWidth: 150, minHeight: 150}} source={{uri: item.imagem}}/>
+                                <Text  style={styles.produto}>{item.nome}</Text>          
+                            </TouchableOpacity>     
                          </View>                                         
                         )}
                     />
                        
                 )               
             }
-            
 
         </ScrollView>
     )

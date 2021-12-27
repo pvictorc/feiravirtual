@@ -39,7 +39,7 @@ function Routes() {
                     }} 
                 />
                 <Tab.Screen 
-                    name="Categorias"
+                    name="Produtos"
                     component={CategoriasStack}
                     options= {{ 
                         tabBarIcon: ({size, color}) => (
