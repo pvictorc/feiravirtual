@@ -32,18 +32,6 @@ export default function ProdutosLista() {
         },[]
     )
 
-
-    // let dados2 = dados.filter( dados => dados.categorias.id ==3  );
-    // console.log(dados2);
-
-    // //filtra os dados pela categoria desejada
-    // dados2 = dados.filter( dados => dados.categorias.includes(filtroCat)  );
-    // console.log(dados2);
-
-    // tag = 'marketing',
-    // result = array.filter(a => a.users.some(u => u.tags.some(t => t.tag.includes(tag))));
-    // const arr2 = data.filter(d => d.gender === 'female');
-
     return (
         <ScrollView showsVerticalScrollIndicator={false}> 
             {                

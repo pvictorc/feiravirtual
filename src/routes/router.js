@@ -50,7 +50,7 @@ function Routes() {
                 } 
                 />
                 {/* apenas teste, será removido */}
-                <Tab.Screen 
+                {/* <Tab.Screen 
                     name="Lista de Produtos"
                     component={ProdutosLista}
                     options= {{ 
@@ -58,7 +58,7 @@ function Routes() {
                             <Entypo name="list" size={size} color={color} />
                         )
                     }} 
-                />
+                /> */}
                 <Tab.Screen 
                     name="Feira"
                     component={Feira}
