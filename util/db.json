@@ -71,7 +71,7 @@
       {
           "nome": "Limão",
           "id": "3",
-          "categorias": ["frutas"],
+          "categorias": ["frutas","novidades"],
           "descricao": null,
           "preco": "2.00",
           "preco_promocional": "1.75",
