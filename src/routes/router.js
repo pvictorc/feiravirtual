@@ -9,7 +9,7 @@ import Categorias from "../pages/Categorias";
 import Feira from "../pages/Feira";
 import Perfil from "../pages/Perfil";
 import ProductDetail from '../pages/Categorias/ProductDetail';
-import ProdutosLista from "../pages/ListaProdutos";
+import ProdutosLista from "../pages/ProdutosLista/index";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -40,7 +40,7 @@ function Routes() {
                     }} 
                 />
                 <Tab.Screen 
-                    name="Produtos"
+                    name="Categorias "
                     component={CategoriasStack}
                     options= {{ 
                         tabBarIcon: ({size, color}) => (
@@ -50,16 +50,6 @@ function Routes() {
                     } 
                 } 
                 />
-                {/* apenas teste, será removido */}
-                {/* <Tab.Screen 
-                    name="Lista de Produtos"
-                    component={ProdutosLista}
-                    options= {{ 
-                        tabBarIcon: ({size, color}) => (
-                            <Entypo name="list" size={size} color={color} />
-                        )
-                    }} 
-                /> */}
                 <Tab.Screen 
                     name="Feira"
                     component={Feira}
@@ -89,7 +79,7 @@ export default Routes;
 function CategoriasStack() {
     return (
     <Stack.Navigator>
-        <Stack.Screen name="Categorias " component={Categorias} />
+        <Stack.Screen name="Categorias" component={Categorias} />
         <Stack.Screen name="Produtos" component={ProdutosLista}/>
         <Stack.Screen name="Detalhes" component={ProductDetail} />
     </Stack.Navigator>

@@ -1,17 +1,35 @@
-import React from 'react'
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList, ActivityIndicator, TextInput} from 'react-native';
+import { Image, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 // aqui iremos incluir tudo que será visto na página home
 export default function Home(props) {
+
+
+    const[dados, setDados] = useState([]);
+    const API_URL = "https://mercadosocial.socialtec.net.br/api/categorias/";
+
+    useEffect(
+        async ()=>{
+            await fetch(API_URL, {method: 'GET'})
+            .then( (response)=> response.json() )
+            .then((responseJson)=> setDados(responseJson))
+            .catch(()=>(console.log('Erro')))
+        },[]
+    );
+
+
     return (
         <>
         <View style={styles.header}>
             <View style={styles.logo}>
                 <Image
-                    source={require('../../../assets/logo-min.png')}   
                     style={styles.image}
+                    source={require('../../../assets/logo-min.png')}   
                 />                     
                 <View style={styles.textContainer}>
                 <TextInput style={styles.TextInput}></TextInput>
@@ -21,31 +39,35 @@ export default function Home(props) {
             
         </View>
 
-        <ScrollView showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>
+        <ScrollView showsVerticalScrollIndicator={false} style={{paddingHorizontal: 15}}>
         <View style={styles.novidades}>
             <Text style={styles.text}>Novidades!</Text>
         </View>
-        <View style={styles.products}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>      
-                <View style={styles.productItem}>
-                    <Text>Produtos da feira</Text>
-                </View>
-                <View style={styles.productItem}>
-                    <Text>Hortifruti</Text>
-                </View>
-                <View style={styles.productItem}>
-                    <Text>Cachaças</Text>
-                </View>
-                <View style={styles.productItem}>
-                    <Text>Etc</Text>
-                </View>
-                <View style={styles.productItem}>
-                    <Text>Recencias</Text>
-                </View>
-            </ScrollView>
-        </View>
+        
+        {     
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>
+                    <FlatList
+                        numColumns={5}
+                        data={dados}
+                        keyExtractor={({id}, index) => id} 
+                        renderItem={({item}) =>(               
+                        <>
+                            {console.log(item)}               
+                        <TouchableOpacity  onPress={() => props.navigation.navigate('Produtos', item)}>
+                            <View style={styles.products}>
+                             <Image style={styles.imgProduto} source={{uri: item.imagem}}/>
+                             <Text  style={styles.productItem}>{item.nome}</Text>
+                             </View>          
+                         </TouchableOpacity>     
+                         </>                                  
+                        )}  
+                    />
+                       </ScrollView>   
+                       
+            }
         </ScrollView>
         </>
+        
     );
 }
 
@@ -53,11 +75,11 @@ export default function Home(props) {
     const styles = StyleSheet.create({
     header: {
         width: '100%',
-        height: 70,
+        height: '9vh',
         backgroundColor: '#dc3545',
     },
     logo:{
-        margin: 8,
+        margin: '2vw',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
@@ -69,7 +91,7 @@ export default function Home(props) {
 
     textContainer:{
         width:'80%',
-        margin: 15
+        margin: '1.5vw'
     },
     text: {
         fontSize: 25
@@ -81,24 +103,30 @@ export default function Home(props) {
     novidades: {
         backgroundColor: '#dc3545',
         width: '100%',
-        height: '50%',
-        marginVertical: '8%'
+        height: '30vh',
+        marginTop: '2vh'
     },
     products: {
-        marginVertical: '5%',
-        flexDirection: 'row',
+        flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: '2vh',
+        paddingRight: '1.5vh'
+        
     },
     productItem: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#c3c3c3',
-        paddingHorizontal: '30%',
-        paddingVertical: '50%',
-        marginHorizontal: '5%',
-        flex: 1,
-        minWidth: '30%',
+        fontSize: 28,
+        position: 'absolute'
+    },
+    imgProduto: {
+        flex: 1, 
+        minWidth: '50vw', 
+        minHeight: '50vh', 
+        backgroundColor: 'gray',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 
 });

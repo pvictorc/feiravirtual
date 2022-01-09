@@ -87,18 +87,18 @@ export default function ProdutosLista(props) {
   // estilizando categorias
   const styles = StyleSheet.create({
     catContainer:{
-        flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         flexWrap: 'wrap',
 
     },
     container:{
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        width: 175,
-        height: 175,
-        marginHorizontal: '2%',
-        marginVertical: '10%',
+        width: '40vw',
+        height: '20vh',
+        marginHorizontal: '5vw',
+        marginVertical: '5vh',
 
     },
     produto: {       
@@ -107,8 +107,9 @@ export default function ProdutosLista(props) {
         fontSize: 20,
     },
     textContainer:{
-        width:'80%',
-        margin: 15,
+        justifyContent: 'center',
+        width:'90vw',
+        margin: '2.5vw',
         backgroundColor: 'black',
         borderRadius: 10,
     },
