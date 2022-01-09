@@ -40,7 +40,7 @@ function Routes() {
                     }} 
                 />
                 <Tab.Screen 
-                    name="Categorias"
+                    name="Produtos"
                     component={CategoriasStack}
                     options= {{ 
                         tabBarIcon: ({size, color}) => (
@@ -50,6 +50,16 @@ function Routes() {
                     } 
                 } 
                 />
+                {/* apenas teste, será removido */}
+                {/* <Tab.Screen 
+                    name="Lista de Produtos"
+                    component={ProdutosLista}
+                    options= {{ 
+                        tabBarIcon: ({size, color}) => (
+                            <Entypo name="list" size={size} color={color} />
+                        )
+                    }} 
+                /> */}
                 <Tab.Screen 
                     name="Feira"
                     component={Feira}

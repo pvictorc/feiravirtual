@@ -7,7 +7,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import ProductDetail from './ProductDetail';
 import ProdutosLista from '../ProdutosLista';
 
-export default function cat(props) {
+export default function categorias(props) {
 
 
     const API_URL = "https://mercadosocial.socialtec.net.br/api/categorias/";
@@ -74,7 +74,6 @@ export default function cat(props) {
                        
                 )               
             }
-            
 
         </ScrollView>
     )
