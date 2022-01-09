@@ -1,14 +1,43 @@
 {
     "categorias": [
-      { "id": 1, "name": "produtos organicos" },
-      { "id": 2, "name": "bebidas" },
-      { "id": 3, "name": "perfumaria" },
-      { "id": 4, "name": "vegetais e frutas" }
+      {
+          "id": 1,
+          "nome": "Frutas",
+          "descricao": "Frutas",
+          "imagem": "http://mercadosocial.socialtec.net.br/midia/categorias/frutas.jpg",
+          "produtos": [
+              3,
+              4
+          ]
+      },
+      {
+          "id": 2,
+          "nome": "Carnes",
+          "descricao": "Carnes e ovos",
+          "imagem": "http://mercadosocial.socialtec.net.br/midia/categorias/carnes.jpg",
+          "produtos": []
+      },
+      {
+          "id": 3,
+          "nome": "Pães e Doces",
+          "descricao": "Pães, bolos, doces.",
+          "imagem": "http://mercadosocial.socialtec.net.br/midia/categorias/paes.jpg",
+          "produtos": [
+              2
+          ]
+      },
+      {
+          "id": 4,
+          "nome": "Grãos e Cereais",
+          "descricao": "Grãos, cereais in natura",
+          "imagem": "http://mercadosocial.socialtec.net.br/midia/categorias/10_cereais-600x315.jpg",
+          "produtos": []
+      }
     ],
     "produtos": [
       {
           "id": "001",
-          "categoria": "hortifruti",
+          "categorias": ["hortifruti"],
           "nome": "Batata",
           "descricao": null,
           "preco": "10.00",
@@ -24,7 +53,7 @@
       {
           "nome": "Pão",
           "id": "003",
-          "categoria": "paes_e_doces",
+          "categorias": ["paes_e_doces"],
           "descricao": null,
           "preco": "5.00",
           "preco_promocional": null,
@@ -41,8 +70,8 @@
       },
       {
           "nome": "Limão",
-          "id": "007",
-          "categoria": "frutas",
+          "id": "3",
+          "categorias": ["frutas","novidades"],
           "descricao": null,
           "preco": "2.00",
           "preco_promocional": "1.75",
@@ -59,8 +88,8 @@
       },
       {
           "nome": "Morango",
-          "id": "0082",
-          "categoria": "frutas",
+          "id": "4",
+          "categorias": ["frutas"],
           "descricao": null,
           "preco": "12.00",
           "preco_promocional": "10.75",

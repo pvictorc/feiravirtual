@@ -4,7 +4,7 @@ import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 
 
 // aqui iremos incluir tudo que será visto na página home
-export default function Home() {
+export default function Home(props) {
     return (
         <>
         <View style={styles.header}>

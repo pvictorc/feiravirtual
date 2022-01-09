@@ -8,7 +8,8 @@ import Home from "../pages/Home";
 import Categorias from "../pages/Categorias";
 import Feira from "../pages/Feira";
 import Perfil from "../pages/Perfil";
-import Produtos from '../pages/Categorias/Produtos';
+import ProductDetail from '../pages/Categorias/ProductDetail';
+import ProdutosLista from "../pages/ListaProdutos";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -75,11 +76,12 @@ function Routes() {
 
 export default Routes;
 
-function CategoriasStack(props) {
+function CategoriasStack() {
     return (
     <Stack.Navigator>
         <Stack.Screen name="Categorias " component={Categorias} />
-        <Stack.Screen name="Produtos" component={Produtos}/>
+        <Stack.Screen name="Produtos" component={ProdutosLista}/>
+        <Stack.Screen name="Detalhes" component={ProductDetail} />
     </Stack.Navigator>
     );
 }
