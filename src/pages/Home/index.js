@@ -41,9 +41,12 @@ export default function Home(props) {
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false} style={{paddingHorizontal: 15}}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Categorias')}>
         <View style={styles.novidades}>
-            <Text style={styles.text}>Novidades!</Text>
+            <Image style={styles.imagemHome} source={require('../../../assets/4.png')}/> 
+            <Text style={styles.text}>Feira tá On!</Text>
         </View>
+        </TouchableOpacity>
         
         {     
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>
@@ -95,17 +98,26 @@ export default function Home(props) {
         margin: vw(1.5)
     },
     text: {
-        fontSize: 25
+        fontSize: vw(5),
+        position: 'absolute',
+        backgroundColor: 'black',
+        color: 'white',
+        fontWeight: 'bold',
+        margin: vw(2)
     },  
     TextInput: {
         backgroundColor: '#fff7f2',
         borderRadius: 10,
     },
     novidades: {
-        backgroundColor: '#A20D15',
         width: '100%',
         height: vh(30),
-        marginTop: vh(2)
+        marginTop: vh(1)
+    },
+    imagemHome: {
+        width: '100%',
+        height: vh(30),
+        paddingTop: vh(20)
     },
     products: {
         flex: 1,

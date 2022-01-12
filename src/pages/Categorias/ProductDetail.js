@@ -18,7 +18,12 @@ export default function ProductDetail(props) {
             <View style={styles.catContainer}>         
                 <View style={styles.container}>
                         <Image style={{width: vw(100), height: vh(30)}} resizeMode='contain' source={{uri: imagemProduto}}/>
-                        <Text  style={styles.produto}>{nomeProduto}</Text>                                    
+                        <Text  style={styles.produto}>{nomeProduto}</Text>
+                        <Text style={styles.produto}>Descrição do produto:</Text>
+                        <Text style={styles.produto}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra ante at 
+                            libero cursus, in aliquam nulla gravida. Nulla eget vulputate neque.  
+                        </Text>                                  
                 </View>
             </View>     
             </SafeAreaView>                                         

@@ -101,6 +101,7 @@ export default function ProdutosLista(props) {
         width: vw(40),
         height: vh(20),
         marginHorizontal: vw(5),
+        marginVertical: vh(5),
     },
     produto: {       
         justifyContent: 'center',
