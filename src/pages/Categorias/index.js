@@ -6,6 +6,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ProductDetail from './ProductDetail';
 import ProdutosLista from '../ProdutosLista';
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 export default function categorias(props) {
 
@@ -45,7 +46,7 @@ export default function categorias(props) {
     );
     
     return (
-        <ScrollView showsVerticalScrollIndicator={false}> 
+        <>
         <View style={styles.textContainer}>
         <TextInput 
         style={styles.TextInput} 
@@ -61,21 +62,23 @@ export default function categorias(props) {
                         numColumns={2}
                         data={dados}
                         keyExtractor={({id}, index) => id} 
-                        renderItem={({item}) =>(                 
+                        renderItem={({item}) =>(               
+                        <ScrollView showsVerticalScrollIndicator={false}>   
                         <View >  
                             {console.log(item)}               
                         <TouchableOpacity style={styles.container} onPress={() => props.navigation.navigate('Produtos', item)}>
                              <Image style={{minWidth: 150, minHeight: 150}} source={{uri: item.imagem}}/>
                              <Text  style={styles.produto}>{item.nome}</Text>          
-                         </TouchableOpacity>     
-                         </View>                                         
+                         </TouchableOpacity>
+                         </View>    
+                         </ScrollView>                                     
                         )}
                     />
                        
                 )               
             }
-
-        </ScrollView>
+</>
+        
     )
     
 }
@@ -91,21 +94,21 @@ export default function categorias(props) {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        width: '40vw',
-        height: '20vh',
-        marginHorizontal: '5vw',
-        marginVertical: '5vh',
+        width: vw(40),
+        height: vh(25),
+        marginHorizontal: vw(5),
+        marginVertical: vh(5),
 
     },
     produto: {       
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 20,
+        fontSize: 25,
     },
     textContainer:{
         justifyContent: 'center',
-        width:'90vw',
-        margin: '2.5vw',
+        width: vw(90),
+        margin: vw(2.5),
         backgroundColor: 'black',
         borderRadius: 10,
     },

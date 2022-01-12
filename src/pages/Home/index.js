@@ -4,6 +4,7 @@ import { View, Text, FlatList, ActivityIndicator, TextInput} from 'react-native'
 import { Image, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 
 // aqui iremos incluir tudo que será visto na página home
@@ -53,7 +54,7 @@ export default function Home(props) {
                         renderItem={({item}) =>(               
                         <>
                             {console.log(item)}               
-                        <TouchableOpacity  onPress={() => props.navigation.navigate('Produtos', item)}>
+                        <TouchableOpacity  onPress={() => props.navigation.navigate('Produtos ', item)}>
                             <View style={styles.products}>
                              <Image style={styles.imgProduto} source={{uri: item.imagem}}/>
                              <Text  style={styles.productItem}>{item.nome}</Text>
@@ -75,11 +76,11 @@ export default function Home(props) {
     const styles = StyleSheet.create({
     header: {
         width: '100%',
-        height: '9vh',
-        backgroundColor: '#dc3545',
+        height: vh(9),
+        backgroundColor: '#A20D15',
     },
     logo:{
-        margin: '2vw',
+        margin: vw(2),
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
@@ -91,27 +92,27 @@ export default function Home(props) {
 
     textContainer:{
         width:'80%',
-        margin: '1.5vw'
+        margin: vw(1.5)
     },
     text: {
         fontSize: 25
     },  
     TextInput: {
-        backgroundColor: 'white',
+        backgroundColor: '#fff7f2',
         borderRadius: 10,
     },
     novidades: {
-        backgroundColor: '#dc3545',
+        backgroundColor: '#A20D15',
         width: '100%',
-        height: '30vh',
-        marginTop: '2vh'
+        height: vh(30),
+        marginTop: vh(2)
     },
     products: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '2vh',
-        paddingRight: '1.5vh'
+        marginTop: vh(2),
+        paddingRight: vh(1.5)
         
     },
     productItem: {
@@ -122,8 +123,8 @@ export default function Home(props) {
     },
     imgProduto: {
         flex: 1, 
-        minWidth: '50vw', 
-        minHeight: '50vh', 
+        minWidth: vw(50), 
+        minHeight: vh(50), 
         backgroundColor: 'gray',
         justifyContent: 'center',
         alignItems: 'center'

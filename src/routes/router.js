@@ -20,18 +20,19 @@ function Routes() {
     return(
             <Tab.Navigator screenOptions= {{
                 tabBarStyle: {
-                    backgroundColor: '#121212',
+                    backgroundColor: '#A20D15',
                     tabBarBorderTopColor: 'transparent',
                     paddingBottom: 5,
                     paddingTop: 5,
                 },
                 tabBarActiveTintColor: '#FFF',
                 showIcon: true
+                
 
             }}>
                 <Tab.Screen 
-                    name="Pagina Inicial"
-                    component={Home}
+                    name="Início"
+                    component={HomeStack}
                     options= {{ 
                         headerShown: false,
                         tabBarIcon: ({size, color}) => (
@@ -83,5 +84,14 @@ function CategoriasStack() {
         <Stack.Screen name="Produtos" component={ProdutosLista}/>
         <Stack.Screen name="Detalhes" component={ProductDetail} />
     </Stack.Navigator>
+    );
+}
+function HomeStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Home " component={Home} options={{headerShown: false}} />
+            <Stack.Screen name="Produtos " component={ProdutosLista} />
+            <Stack.Screen name="Detalhes" component={ProductDetail} />
+        </Stack.Navigator>
     );
 }

@@ -4,6 +4,7 @@ import { Image, StyleSheet } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ProductDetail from '../Categorias/ProductDetail';
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 export default function ProdutosLista(props) {
 
@@ -47,7 +48,7 @@ export default function ProdutosLista(props) {
         },[searchText]
     );
     return (
-        <ScrollView showsVerticalScrollIndicator={false}> 
+            <>
             <View style={styles.textContainer}>
                 <TextInput 
                 style={styles.TextInput} 
@@ -65,22 +66,24 @@ export default function ProdutosLista(props) {
                         data={dados}
                         keyExtractor={({id}, index) => id} 
                         renderItem={({item}) =>(
+                        <ScrollView showsVerticalScrollIndicator={false}> 
                         <View >            
                             {console.log(item)}     
                             <TouchableOpacity style={styles.container} onPress={() => props.navigation.navigate('Detalhes', item)}>
-                                <Image style={{minWidth: 150, minHeight: 150}} source={{uri: imagemProduto+item.midia_list[0]}}/>
+                                <Image style={{width: vw(50), height: vh(20)}} resizeMode='contain' source={{uri: imagemProduto+item.midia_list[0]}}/>
                                 <Text  style={styles.produto}>{item.nome}</Text>     
                                 <Text style={styles.produto}>{'R$' + ' ' + item.preco}</Text>     
                             </TouchableOpacity>     
-                        </View>                                         
+                        </View>   
+                        </ScrollView>                                      
                         )}
                     />
                        
                 )               
             }
             
-
-        </ScrollView>
+            </>
+        
     )
 }
 
@@ -95,11 +98,9 @@ export default function ProdutosLista(props) {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        width: '40vw',
-        height: '20vh',
-        marginHorizontal: '5vw',
-        marginVertical: '5vh',
-
+        width: vw(40),
+        height: vh(20),
+        marginHorizontal: vw(5),
     },
     produto: {       
         justifyContent: 'center',
@@ -108,8 +109,8 @@ export default function ProdutosLista(props) {
     },
     textContainer:{
         justifyContent: 'center',
-        width:'90vw',
-        margin: '2.5vw',
+        width:vw(90),
+        margin: vw(2.5),
         backgroundColor: 'black',
         borderRadius: 10,
     },

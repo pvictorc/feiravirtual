@@ -5,6 +5,7 @@ import { Image, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 export default function ProductDetail(props) {
 
@@ -16,7 +17,7 @@ export default function ProductDetail(props) {
             <SafeAreaView>       
             <View style={styles.catContainer}>         
                 <View style={styles.container}>
-                        <Image style={{minWidth: 200, minHeight: 200}} source={{uri: imagemProduto}}/>
+                        <Image style={{width: vw(100), height: vh(30)}} resizeMode='contain' source={{uri: imagemProduto}}/>
                         <Text  style={styles.produto}>{nomeProduto}</Text>                                    
                 </View>
             </View>     
@@ -27,29 +28,22 @@ export default function ProductDetail(props) {
 
   // estilizando categorias
   const styles = StyleSheet.create({
-    catContainer:{
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        flexWrap: 'wrap',
-
-    },
+   
     container:{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 175,
-        height: 175,
-        marginHorizontal: '2%',
-        marginVertical: '10%',
+        width: vw(100),
+        maxHeight: vh(50),
+        marginHorizontal: vw(2),
+        marginVertical: vh(5),
 
     },
-    produto: {       
+    produto: {
+        margin: vw(2),
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 20,
+        fontSize: 25,
     },
     textContainer:{
-        width:'80%',
+        width:vw(80),
         margin: 15,
         backgroundColor: 'black',
         borderRadius: 10,
