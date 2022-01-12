@@ -32,7 +32,11 @@ function Routes() {
             }}>
                 <Tab.Screen 
                     name="Início"
+<<<<<<< HEAD
                     component={HomeStack}
+=======
+                    component={Home}
+>>>>>>> e6f2fd13d7f864bbc79420e4ae0913ccb8bdc032
                     options= {{ 
                         headerShown: false,
                         tabBarIcon: ({size, color}) => (
@@ -41,7 +45,7 @@ function Routes() {
                     }} 
                 />
                 <Tab.Screen 
-                    name="Categorias "
+                    name="Produtos"
                     component={CategoriasStack}
                     options= {{ 
                         tabBarIcon: ({size, color}) => (
@@ -71,7 +75,6 @@ function Routes() {
                 />
             </Tab.Navigator>        
     );
-
 
 }
 
