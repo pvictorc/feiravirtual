@@ -44,6 +44,11 @@ conteúdo, a ser desenvolvida em versão mobile.
 
 # Como rodar o projeto
 
+## Através do APK
+ Instalador: https://drive.google.com/file/d/1krpbGoOmlzgFOEmSWE4ZOQYMgdY2KRmK/view?usp=sharing
+ 
+### OU
+
 ## Instalar todas as dependencias indicadas pelo package.json
 * npm install  
 * Instalar o Expo:
