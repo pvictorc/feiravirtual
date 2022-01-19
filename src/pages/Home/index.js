@@ -51,7 +51,7 @@ export default function Home(props) {
         {     
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>
                     <FlatList
-                        numColumns={5}
+                        numColumns={20}
                         data={dados}
                         keyExtractor={({id}, index) => id} 
                         renderItem={({item}) =>(               
@@ -130,8 +130,16 @@ export default function Home(props) {
     productItem: {
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 28,
-        position: 'absolute'
+        fontSize: vh(4),
+        fontWeight: 'bold',
+        position: 'absolute',
+        textShadowOffset:{
+            width: 2,
+            height: 0
+        },
+        color: 'white',
+        backgroundColor: 'rgba(52, 52, 52, 0.8)'
+
     },
     imgProduto: {
         flex: 1, 

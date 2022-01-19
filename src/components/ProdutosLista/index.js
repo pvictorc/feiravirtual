@@ -3,10 +3,12 @@ import { View, Text, FlatList, ActivityIndicator} from 'react-native';
 import { Image, StyleSheet } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import ProductDetail from '../Categorias/ProductDetail';
+import ProductDetail from '../ProductDetail';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { connect } from 'react-redux';
 
-export default function ProdutosLista(props) {
+function ProdutosLista(props) {
 
     const listProduct = props.route.params.id;
     const API_URL = 'https://mercadosocial.socialtec.net.br/api/produtos/';
@@ -47,7 +49,7 @@ export default function ProdutosLista(props) {
                 );}
         },[searchText]
     );
-    return (
+    return (                    
             <>
             <View style={styles.textContainer}>
                 <TextInput 
@@ -60,20 +62,21 @@ export default function ProdutosLista(props) {
             {                
                 carregando ? <ActivityIndicator /> : (      
                         
-                    <FlatList
-                        
+                    <FlatList                   
                         numColumns={2}
                         data={dados}
                         keyExtractor={({id}, index) => id} 
                         renderItem={({item}) =>(
                         <ScrollView showsVerticalScrollIndicator={false}> 
-                        <View >            
-                            {console.log(item)}     
+                        <View >                
                             <TouchableOpacity style={styles.container} onPress={() => props.navigation.navigate('Detalhes', item)}>
                                 <Image style={{width: vw(50), height: vh(20)}} resizeMode='contain' source={{uri: imagemProduto+item.midia_list[0]}}/>
                                 <Text  style={styles.produto}>{item.nome}</Text>     
                                 <Text style={styles.produto}>{'R$' + ' ' + item.preco}</Text>     
-                            </TouchableOpacity>     
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>props.addItemToCart(item.nome)}>
+                                <Icon name='plus-circle' size={vh(3)} style={{marginLeft: vw(35)}}/>
+                            </TouchableOpacity>
                         </View>   
                         </ScrollView>                                      
                         )}
@@ -81,11 +84,22 @@ export default function ProdutosLista(props) {
                        
                 )               
             }
-            
             </>
+            
         
     )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addItemToCart:(item) => dispatch({
+            type: 'ADD_TO_CART',
+            payload: item
+        })
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProdutosLista);
 
   // estilizando categorias
   const styles = StyleSheet.create({

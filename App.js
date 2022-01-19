@@ -4,6 +4,11 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Routes from './src/routes/router';
+import { Provider } from 'react-redux';
+import store from './store';
+
+
+
 
 export default function App() {
 
@@ -11,9 +16,11 @@ export default function App() {
   return (
     <>
         <StatusBar style="light" backgroundColor="#000" translucent={false}/> 
+        <Provider store={store}>
         <NavigationContainer> 
         <Routes />
         </NavigationContainer> 
+        </Provider>
     </>
   );
 }

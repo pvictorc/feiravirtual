@@ -8,14 +8,17 @@ import Home from "../pages/Home";
 import Categorias from "../pages/Categorias";
 import Feira from "../pages/Feira";
 import Perfil from "../pages/Perfil";
-import ProductDetail from '../pages/Categorias/ProductDetail';
-import ProdutosLista from "../pages/ProdutosLista/index";
+import ProductDetail from '../components/ProductDetail';
+import ProdutosLista from "../components/ProdutosLista/index";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import CarrinhoIcone from '../components/CarrinhoIcone';
+import Carrinho from "../components/Carrinho";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 // usaremos o modelo tab navigator do react navigation
-function Routes() {
+function Routes(props) {
     // chamar a tab navigator incluindo nossas rotas/páginas e estilizando a tab
     return(
             <Tab.Navigator screenOptions= {{
@@ -47,7 +50,7 @@ function Routes() {
                         tabBarIcon: ({size, color}) => (
                             <Entypo name="shop" size={size} color={color} />
                         ),
-                        headerShown: false
+                        headerShown: false,
                     } 
                 } 
                 />
@@ -76,21 +79,37 @@ function Routes() {
 
 export default Routes;
 
-function CategoriasStack() {
+function CategoriasStack(props) {
     return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{
+        headerRight: () => (
+            <TouchableOpacity onPress={() => props.navigation.navigate('Carrinho')}>
+                <CarrinhoIcone />
+            </TouchableOpacity>
+        ),
+    }}>
         <Stack.Screen name="Categorias " component={Categorias} />
         <Stack.Screen name="Produtos" component={ProdutosLista}/>
         <Stack.Screen name="Detalhes" component={ProductDetail} />
+        <Stack.Screen name="CarrinhoIcone" component={CarrinhoIcone} />
+        <Stack.Screen name="Carrinho" component={Carrinho} />
     </Stack.Navigator>
     );
 }
-function HomeStack() {
+function HomeStack(props) {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+            headerRight: () => (
+                <TouchableOpacity onPress={() => props.navigation.navigate('Carrinho')}>
+                    <CarrinhoIcone />
+                </TouchableOpacity>
+            ),
+        }}>
             <Stack.Screen name="Home " component={Home} options={{headerShown: false}} />
             <Stack.Screen name="Produtos " component={ProdutosLista} />
             <Stack.Screen name="Detalhes" component={ProductDetail} />
+            <Stack.Screen name="CarrinhoIcone" component={CarrinhoIcone} />
+            <Stack.Screen name="Carrinho" component={Carrinho} />
         </Stack.Navigator>
     );
 }

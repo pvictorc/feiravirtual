@@ -4,8 +4,8 @@ import { View, Text, FlatList, ActivityIndicator, TextInput} from 'react-native'
 import { Image, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import ProductDetail from './ProductDetail';
-import ProdutosLista from '../ProdutosLista';
+import ProductDetail from '../../components/ProductDetail';
+import ProdutosLista from '../../components/ProdutosLista';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 export default function categorias(props) {
@@ -82,6 +82,8 @@ export default function categorias(props) {
     )
     
 }
+
+
 
   // estilizando categorias
   const styles = StyleSheet.create({
