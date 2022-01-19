@@ -1,5 +1,7 @@
 # feiravirtual
 
+<img src="https://user-images.githubusercontent.com/74067292/149235408-2c27dd34-8582-49d4-9517-6a8a025a3a44.jpg" width="300">
+
 ## Sobre o cliente
 
 A “Feira Virtual - Produtos de agricultura familiar”, ou “Feira da Reforma Agrária”, é uma iniciativa que permite aos produtores vender diretamente aos 
@@ -29,12 +31,24 @@ conteúdo, a ser desenvolvida em versão mobile.
 | RF003. Exibir tela de detalhes do produto      |Esta tela mostrará a disponibilidade, o preço, uma imagem fiel do produto, sua descrição, detalhes da produção, de quantidade sobre um produto para o usuário decidir se irá efetuar a compra.|Arquivo '../pages/Categorias/ProductDetail'| 
 | RF004. Listar Produtos a partir de uma busca      |Irá mostrar uma barra de pesquisa e, a partir de um texto, termo ou palavra-chave, procurar por opções de um produto específico para decidir qual o usuário quer comprar.|Incluso na tela Categorias/Produtos|
 
+<div  display: flex>
+<img src="https://user-images.githubusercontent.com/74067292/149235693-44940ddd-a5f0-45d6-a9b6-e91c87533089.jpg" width="300">
+<img src="https://user-images.githubusercontent.com/74067292/149235736-333a6ee7-3e09-4a82-95b4-b61b63efdcfc.jpg" width="300">
+<img src="https://user-images.githubusercontent.com/74067292/149235759-409c9c53-238b-47cb-95c7-a08a0e66e686.jpg" width="300">
+<img src="https://user-images.githubusercontent.com/74067292/149236087-67c0d3ce-8061-4dc2-8be0-b5352e52b4d3.jpg" width="300">
+</div>
+
 ## Ambiente de desenvolvimento
 * Node.js LTS release
 * Git
 * Expo
 
 # Como rodar o projeto
+
+## Através do APK
+ Instalador: https://drive.google.com/file/d/1krpbGoOmlzgFOEmSWE4ZOQYMgdY2KRmK/view?usp=sharing
+ 
+### OU
 
 ## Instalar todas as dependencias indicadas pelo package.json
 * npm install  
