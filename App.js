@@ -5,10 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Routes from './src/routes/router';
 import { Provider } from 'react-redux';
-import store from './store';
+import configureStore from './store';
 
 
-
+const store = configureStore();
 
 export default function App() {
 
@@ -21,7 +21,7 @@ export default function App() {
         <Routes />
         </NavigationContainer> 
         </Provider>
-    </>
+    </> 
   );
 }
 

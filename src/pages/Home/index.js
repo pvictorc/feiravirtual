@@ -98,9 +98,9 @@ export default function Home(props) {
         margin: vw(1.5)
     },
     text: {
-        fontSize: vw(5),
+        fontSize: vw(7),
         position: 'absolute',
-        backgroundColor: 'black',
+        backgroundColor: 'rgba(52, 52, 52, 0.6)',
         color: 'white',
         fontWeight: 'bold',
         margin: vw(2)

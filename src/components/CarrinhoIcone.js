@@ -7,10 +7,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
  function CarrinhoIcone(props){
     return (
-            <View style={{paddingRight: vh(2)}}>            
+            <View style={{paddingRight: vh(3)}}>            
                 <Icon name="cart-outline" size={vh(4)}/>
-                <View style={{position: 'absolute', marginLeft: vw(8), marginVertical: vh(2)}}>
-                     <Text>{props.cartItems.length}</Text> 
+                <View style={{position: 'absolute', marginLeft: vw(7.5), marginVertical: vh(2)}}>
+                     <Text style={{fontSize:vh(2), position:'absolute'}}>{props.cartItems.length}</Text> 
                 </View>
             </View>
         )
@@ -19,7 +19,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const mapStateToProps = (state) => {
     return {
-        cartItems: state
+        cartItems: state.cartItems.cart
     }
 }
 

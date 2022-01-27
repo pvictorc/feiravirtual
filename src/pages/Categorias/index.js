@@ -61,13 +61,14 @@ export default function categorias(props) {
                     <FlatList
                         numColumns={2}
                         data={dados}
+                        showsVerticalScrollIndicator={false}
                         keyExtractor={({id}, index) => id} 
                         renderItem={({item}) =>(               
                         <ScrollView showsVerticalScrollIndicator={false}>   
                         <View >  
                             {console.log(item)}               
                         <TouchableOpacity style={styles.container} onPress={() => props.navigation.navigate('Produtos', item)}>
-                             <Image style={{minWidth: 150, minHeight: 150}} source={{uri: item.imagem}}/>
+                             <Image style={{minWidth: 280, minHeight: 200}} resizeMode='contain' source={{uri: item.imagem}}/>
                              <Text  style={styles.produto}>{item.nome}</Text>          
                          </TouchableOpacity>
                          </View>    
@@ -99,13 +100,14 @@ export default function categorias(props) {
         width: vw(40),
         height: vh(25),
         marginHorizontal: vw(5),
-        marginVertical: vh(5),
+        marginTop: vh(5),
 
     },
     produto: {       
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 25,
+        fontSize: vh(3.5),
+        marginBottom: vh(8)
     },
     textContainer:{
         justifyContent: 'center',

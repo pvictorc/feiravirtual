@@ -13,6 +13,7 @@ import ProdutosLista from "../components/ProdutosLista/index";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CarrinhoIcone from '../components/CarrinhoIcone';
 import Carrinho from "../components/Carrinho";
+import Form from "../components/Form";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -55,12 +56,13 @@ function Routes(props) {
                 } 
                 />
                 <Tab.Screen 
-                    name="Feira"
-                    component={Feira}
+                    name="Carrinho"
+                    component={Carrinho}
                     options= {{ 
                         tabBarIcon: ({size, color}) => (
-                            <Entypo name="calendar" size={size} color={color} />
-                        )
+                            <Entypo name="shopping-cart" size={size} color={color} />
+                        ),
+                        headerShown: true
                     }} 
                 />
                 <Tab.Screen 
@@ -93,6 +95,7 @@ function CategoriasStack(props) {
         <Stack.Screen name="Detalhes" component={ProductDetail} />
         <Stack.Screen name="CarrinhoIcone" component={CarrinhoIcone} />
         <Stack.Screen name="Carrinho" component={Carrinho} />
+        <Stack.Screen name="Formulário de compra" component={Form} />
     </Stack.Navigator>
     );
 }
@@ -110,6 +113,7 @@ function HomeStack(props) {
             <Stack.Screen name="Detalhes" component={ProductDetail} />
             <Stack.Screen name="CarrinhoIcone" component={CarrinhoIcone} />
             <Stack.Screen name="Carrinho" component={Carrinho} />
+            <Stack.Screen name="Formulário de compra" component={Form} />
         </Stack.Navigator>
     );
 }

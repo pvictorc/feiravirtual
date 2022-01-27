@@ -6,8 +6,10 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+import { Button } from 'react-native-web';
+import { connect } from 'react-redux';
 
-export default function ProductDetail(props) {
+function ProductDetail(props) {
 
     const nomeProduto = props.route.params.nome;
     const imagemProduto = `https://mercadosocial.socialtec.net.br${props.route.params.midia_list[0]}`;
@@ -25,11 +27,34 @@ export default function ProductDetail(props) {
                             libero cursus, in aliquam nulla gravida. Nulla eget vulputate neque.  
                         </Text>                                  
                 </View>
+
+                <View style={{marginTop: vh(14)}}>
+                    
+                <Button        
+                title="Adicionar ao carrinho"
+                color="black"
+                onPress={() => props.addItemToCart(nomeProduto)}
+                /> 
+                </View>
+
+                
             </View>     
             </SafeAreaView>                                         
         </ScrollView>
     )
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addItemToCart: (item) => dispatch({
+            type: 'ADD_TO_CART',
+            payload: item
+        }),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProductDetail);
+
 
   // estilizando categorias
   const styles = StyleSheet.create({
