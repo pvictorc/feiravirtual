@@ -82,7 +82,14 @@ function ProdutosLista(props) {
                                         <TouchableOpacity onPress={() => props.removeItem(item.nome)}>
                                             <Icon name='minus-circle' size={vh(3)} style={{ marginLeft: vw(10), color: '#A20D15' }} />
                                         </TouchableOpacity>
-                                        <TouchableOpacity onPress={() => props.addItemToCart(item.nome)}>
+                                        <TouchableOpacity onPress={() => props.addItemToCart(
+                                        <View style={{flexDirection: 'row' }}> 
+                                            <Image style={{ width: vw(30), height: vh(15) }} resizeMode='contain' source={{ uri: imagemProduto + item.midia_list[0] }}/> 
+                                            <Text style={{fontSize: vh(4)}}>{item.nome}</Text> 
+                                            <Text style={{fontSize: vh(4), marginTop:vh(12)}}>R${item.preco}</Text>
+                                        </View>
+                                            
+                                            )}>
                                             <Icon name='plus-circle' size={vh(3)} style={{ marginLeft: vw(15), color: 'green' }} />
                                         </TouchableOpacity>
 

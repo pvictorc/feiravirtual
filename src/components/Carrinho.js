@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, FlatList } from 'react-native'
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { vh, vw } from 'react-native-expo-viewport-units';
@@ -9,22 +9,24 @@ import { Button } from 'react-native-web';
 
 function Carrinho(props) {
     return (
-
-        <View>
-            {!!props.cartItems.length > 0 ?
-                <><Text style={styles.container}>{props.cartItems.join(', ')}</Text><View style={{ marginTop: vh(50) }}>
-                    <Button
-                        title="Comprar"
-                        color="black"
-                        onPress={() => props.navigation.navigate('Formulário de compra')} />
-                </View></>       
-                : <Text style={{fontSize:vh(3), alignItems:'center'}}>Não há itens no carrinho</Text>
-            }
-            {console.log(props.cartItems)}
-        </View>
-
+        props.cartItems.length > 0 ?
+            <>
+                <FlatList
+                    data={props.cartItems}
+                    keyExtractor={({ id }, index) => id}
+                    renderItem={({ item }) => (
+                        <View>
+                            <Text style={styles.container}>{item}</Text>
+                            {console.log(item)}
+                        </View>
+                    )}
+                />
+                <Button title="Comprar"
+                    color="black"
+                    onPress={() => props.navigation.navigate('Formulário de compra')}>
+                </Button></>
+            : <Text style={{ fontSize: vh(4), alignItems: 'center' }}>Não há itens no carrinho</Text>
     )
-
 }
 const mapStateToProps = (state) => {
     return {
@@ -47,11 +49,11 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-        margin: vh(5),
-        padding: vw(4),
+        marginTop: vh(2),
+        marginLeft: vw(3),
         fontSize: vh(4),
         flexDirection: 'column',
-        flexWrap: 'wrap',       
+        flexWrap: 'wrap',
     }
 })
 

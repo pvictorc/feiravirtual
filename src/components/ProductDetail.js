@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 function ProductDetail(props) {
 
     const nomeProduto = props.route.params.nome;
+    const precoProduto = props.route.params.preco;
     const imagemProduto = `https://mercadosocial.socialtec.net.br${props.route.params.midia_list[0]}`;
 
     return (
@@ -33,7 +34,12 @@ function ProductDetail(props) {
                 <Button        
                 title="Adicionar ao carrinho"
                 color="black"
-                onPress={() => props.addItemToCart(nomeProduto)}
+                onPress={() => props.addItemToCart( 
+                <View style={{flexDirection: 'row' }}> 
+                    <Image style={{ width: vw(30), height: vh(15) }} resizeMode='contain' source={{ uri: imagemProduto}}/> 
+                    <Text style={{fontSize: vh(4)}}>{nomeProduto}</Text> 
+                    <Text style={{fontSize: vh(4), marginTop:vh(12)}}>R${precoProduto}</Text>
+                </View>)}
                 /> 
                 </View>
 
