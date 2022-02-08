@@ -51,6 +51,7 @@ function ProdutosLista(props) {
         }, [searchText]
     );
 
+
     return (
         <>
             <View style={styles.textContainer}>
@@ -86,7 +87,7 @@ function ProdutosLista(props) {
                                         <View style={{flexDirection: 'row' }}> 
                                             <Image style={{ width: vw(30), height: vh(15) }} resizeMode='contain' source={{ uri: imagemProduto + item.midia_list[0] }}/> 
                                             <Text style={{fontSize: vh(4)}}>{item.nome}</Text> 
-                                            <Text style={{fontSize: vh(4), marginTop:vh(12)}}>R${item.preco}</Text>
+                                            <Text style={{fontSize: vh(4), marginTop:vh(12)}}>R${item.preco}</Text>                      
                                         </View>
                                             
                                             )}>
