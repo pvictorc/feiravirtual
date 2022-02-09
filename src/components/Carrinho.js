@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, FlatList } from 'react-native'
+import { Text, View, StyleSheet, FlatList, Image } from 'react-native'
 import { connect } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { vh, vw } from 'react-native-expo-viewport-units';
 import { TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-web';
 
-
+const imagemProduto = `https://mercadosocial.socialtec.net.br`;
 function Carrinho(props) {
     return (
         props.cartItems.length > 0 ?
@@ -16,14 +16,18 @@ function Carrinho(props) {
                     keyExtractor={({ id }, index) => id}
                     renderItem={({ item }) => (
                         <View>
-                            <Text style={styles.container}>{item}</Text>
+                            <View style={{flexDirection: 'row' }}> 
+                                <Image style={{ width: vw(30), height: vh(15) }} resizeMode='contain' source={{ uri: imagemProduto + item.midia_list[0] }}/> 
+                                <Text style={{fontSize: vh(4)}}>{item.nome}</Text> 
+                                <Text style={{fontSize: vh(4), marginTop:vh(12)}}>R${item.preco}</Text>                      
+                                        </View>
                             {console.log(item)}
                         </View>
                     )}
                 />
                 <Button title="Comprar"
                     color="black"
-                    onPress={() => props.navigation.navigate('Formulário de compra')}>
+                    onPress={() => props.navigation.navigate('Formulário de compra', props.cartItems)}>
                 </Button></>
             : <Text style={{ fontSize: vh(4), alignItems: 'center' }}>Não há itens no carrinho</Text>
     )
