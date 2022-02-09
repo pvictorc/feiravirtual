@@ -49,9 +49,8 @@ export default function Home(props) {
         </TouchableOpacity>
         
         {     
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}}>
                     <FlatList
-                        numColumns={20}
+                        horizontal  
                         data={dados}
                         keyExtractor={({id}, index) => id} 
                         renderItem={({item}) =>(               
@@ -66,7 +65,7 @@ export default function Home(props) {
                          </>                                  
                         )}  
                     />
-                       </ScrollView>   
+                       
                        
             }
         </ScrollView>
