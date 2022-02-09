@@ -28,7 +28,11 @@ O produto a ser desenvolvido engloba a reconstrução de uma plataforma de venda
 | RF001. Listar Categorias de Produtos      | Esta tela irá mostrar todas as categorias de produtos que estão disponíveis, nomeadas para especificar o tipo de produto para tomar conhecimento de quais tipos de produtos o usuário pode comprar.|Arquivo "../pages/Categorias/index.js" |      
 | RF002. Listar Produtos de uma Categoria|Esta tela mostrará todos os produtos de uma determinada categoria disponíveis, listados por nome, com uma representação visual fiel, preço, com cards específicos para si para definir qual o usuário quer comprar.|Arquivo "../pages/ProdutosLista/index.js"| 
 | RF003. Exibir tela de detalhes do produto      |Esta tela mostrará a disponibilidade, o preço, uma imagem fiel do produto, sua descrição, detalhes da produção, de quantidade sobre um produto para o usuário decidir se irá efetuar a compra.|Arquivo '../pages/Categorias/ProductDetail'| 
-| RF004. Listar Produtos a partir de uma busca      |Irá mostrar uma barra de pesquisa e, a partir de um texto, termo ou palavra-chave, procurar por opções de um produto específico para decidir qual o usuário quer comprar.|Incluso na tela Categorias/Produtos|
+| RF004. Listar Produtos a partir de uma busca      |Irá mostrar uma barra de pesquisa e, a partir de um texto, termo ou palavra-chave, procurar por opções de um produto específico para decidir qual o usuário quer comprar.|Incluso na tela Categorias/Produtos| 
+| RF010. Adicionar Produto na Cesta de Compra      |Irá incluir um produto no carrinho de modo que informe o preço, nome e imagem do produto escolhido.|Incluso na tela src/components/ProdutosLista/index.js|
+| RF011. Retirar Produto da Cesta de Compra      |Irá remover um produto do carrinho de modo que possa ajustar a quantidade.|Incluso na tela src/components/ProdutosLista/index.js|
+| RF019. Fazer Checkout da Cesta de Produto      |Após clicar em comprar irá navegar para o formulário de compra onde pode ser concluído a compra.|Incluso na tela src/components/Carrinho|
+| RF050. Preencher formulário de compra      |Irá mostrar um formulário para o cliente preencher e para usuários cadastrados será enviado um link para o email para o pagamento, onde está informando o valor total dos itens e valor do frete e pedirá informações de pagamento.|Incluso na tela src/components/Form.js|
 
 <div  display: flex style="overflow-x: horizontal" >
 <img alt="categorias" src="https://user-images.githubusercontent.com/74067292/150574168-3942589a-45e8-492a-a474-aa56ac7bd91f.jpeg" width="200">
