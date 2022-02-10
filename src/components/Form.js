@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TextInput } from 'react-native-gesture-handler';
-import { View, Text, Button} from 'react-native-web';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
+import { View, Text, Button, ScrollViewComponent} from 'react-native';
 import { Formik } from 'formik';
 import { StyleSheet } from 'react-native';
 import { Picker } from 'react-native';
@@ -16,12 +16,13 @@ function Form(props) {
 
     console.log(props.cartItems[0].id);
     return (
+        <ScrollView showsVerticalScrollIndicator={false}>
         <View style={formStyles.container}>
             <Formik 
             initialValues={{ initialValues }}
             onSubmit={(values) => {
                 console.log(values);
-    
+                
                 fetch('https://mercadosocial.socialtec.net.br/api/pedidos', {
                     method: 'POST',
                     headers: {
@@ -36,7 +37,7 @@ function Form(props) {
                         "end_bairro": values.end_bairro,
                         "end_cidade": values.end_cidade,
                         "end_uf": values.end_uf,
-                        "end_cep": values.end_cep,
+                        "end_cep": '60833300',
                         "tipo_frete": values.tipo_frete,
                         "fone_ddd": values.fone_ddd,
                         "fone_numero": values.fone_numero,
@@ -50,7 +51,8 @@ function Form(props) {
                           }
                         ]
                     })
-                  });           
+                  });        
+                  alert('Pedido realizado!')   
             }}
             >
                 {(props) => (
@@ -151,7 +153,7 @@ function Form(props) {
                 )} 
             </Formik>
         </View>
-        
+        </ScrollView>
     );
 }
 

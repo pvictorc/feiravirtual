@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
-import { Button } from 'react-native-web';
+import { Button } from 'react-native';
 import { connect } from 'react-redux';
 
 function ProductDetail(props) {
@@ -34,12 +34,7 @@ function ProductDetail(props) {
                 <Button        
                 title="Adicionar ao carrinho"
                 color="black"
-                onPress={() => props.addItemToCart( 
-                <View style={{flexDirection: 'row' }}> 
-                    <Image style={{ width: vw(30), height: vh(15) }} resizeMode='contain' source={{ uri: imagemProduto}}/> 
-                    <Text style={{fontSize: vh(4)}}>{nomeProduto}</Text> 
-                    <Text style={{fontSize: vh(4), marginTop:vh(12)}}>R${precoProduto}</Text>
-                </View>)}
+                onPress={() => props.addItemToCart(props.route.params)}
                 /> 
                 </View>
 

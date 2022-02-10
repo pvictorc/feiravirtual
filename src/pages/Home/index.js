@@ -7,7 +7,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 
-// aqui iremos incluir tudo que será visto na página home
 export default function Home(props) {
 
 
