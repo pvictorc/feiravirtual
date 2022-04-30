@@ -10,7 +10,7 @@ atrair os consumidores para os eventos do Centro Frei Humberto e para as
 questões dos movimentos sociais.
 
 ## Sobre o projeto
-O produto a ser desenvolvido engloba a reconstrução de uma plataforma de venda de produto a ser desenvolvida em versão mobile utilizando principalmente as tecnologias: React Native | NodeJS | Expo | Redux | JTW
+O produto a ser desenvolvido engloba a reconstrução de uma plataforma de venda de produto a ser desenvolvida em versão mobile utilizando principalmente as tecnologias: React Native | NodeJS | Expo | Redux | JWT
 
 ## Equipe PôjetoVasco
 
